@@ -83,3 +83,20 @@
 - **`&.`（ぼっち演算子）**: `email&.strip&.downcase` のように、`nil` のときはメソッドを呼ばず安全に `nil` を返す。
 - **`||=`（自己代入 / メモ化）**: 左辺が偽（`nil` / `false`）のときだけ右辺を代入する。`0` は真なので上書きされない。
 - **RuboCop (`Metrics/MethodLength`)**: デフォルトでは 1 メソッド 10 行以内が推奨される。
+
+---
+
+## 1-6. クラス定義とアクセサ
+
+### 要点
+- **クラス定義と `initialize`**: `User.new(...)` で生成し、`initialize` が呼ばれる。継承は単一継承（`<`）。
+- **`super` の挙動**:
+  - `super`: 同じ引数をそのまま親へ渡す。
+  - `super()`: 引数 0 個で親を呼ぶ。
+  - `super(a, b)`: 指定した引数だけ親へ渡す。
+- **アクセサ（`attr_reader` / `attr_writer` / `attr_accessor`）**:
+  - 読み取りだけでよい場合は `attr_reader` を使うのが基本。
+  - **重要（`self.` の使い分け）**: クラス内でセッターを呼ぶとき（左辺 `self.price = ...`）だけ `self.` が必須。ゲッター（読み取り `price`）には `self.` を付けない（付けると RuboCop の `Style/RedundantSelf` になる）。
+- **可視性（`public` / `private` / `protected`）**:
+  - Ruby の `private` は「レシーバ（`obj.`）を付けて呼べない」という意味。サブクラスからでもレシーバなしなら呼べる。
+  - `protected` は同一クラス（およびサブクラス）のインスタンス同士でレシーバ付き呼び出しを許すときに使う。

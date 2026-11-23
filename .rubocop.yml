@@ -4,3 +4,7 @@ AllCops:
   TargetRubyVersion: 4.0
   NewCops: enable
   SuggestExtensions: false
+
+# 演習ファイルでは1ファイルに複数クラスを定義することがあるため無効化
+Style/OneClassPerFile:
+  Enabled: false
