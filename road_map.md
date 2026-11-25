@@ -25,7 +25,7 @@ Rubyの「すべてがオブジェクト」という世界観と、メソッド�
 - [x] **2-1. Pure OOP とオープンクラス / Refinements**: プリミティブが存在しない設計、既存クラスの拡張、Refinements（`refine` / `using`）による安全なスコープ限定拡張
 - [x] **2-2. ブロック・Proc・Lambda**: `do ... end` と `{ ... }` の結合優先度、`yield`、`&block`、`Proc` と `Lambda`（`->`）の引数チェック・`return` 挙動の違い
 - [x] **2-3. モジュールとメソッド探索経路**: 名前空間としてのモジュール、ミックスイン（`include` / `extend` / `prepend`）、`ancestors` による探索経路の可視化
-- [ ] **2-4. 特異メソッドと特異クラス（Singleton Class）**: クラスメソッド（`def self.foo` / `class << self`）の正体とオブジェクトモデル上の位置づけ
+- [x] **2-4. 特異メソッドと特異クラス（Singleton Class）**: クラスメソッド（`def self.foo` / `class << self`）の正体とオブジェクトモデル上の位置づけ
 - [ ] **2-5. シンボルと文字列のイミュータブル化**: `Symbol` の特性・使い分け、`# frozen_string_literal: true` の意味とパフォーマンス
 - [ ] **2-6. 例外処理の設計**: `begin ... rescue ... ensure`、`StandardError` を捕捉する理由、カスタム例外クラス、`retry`
 
