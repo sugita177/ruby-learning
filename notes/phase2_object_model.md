@@ -56,3 +56,13 @@
 - **`# frozen_string_literal: true`**: ファイル内の固定文字列リテラルを自動凍結し、メモリ効率と安全性を高める。
   - 式展開 `#{}` を含む文字列は実行時に生成されるため**最初からミュータブル**（`+` は不要）。
   - 固定リテラルを書き換えたいときだけ単項プラス `+'hello'` を使う。
+
+---
+
+## 2-6. 例外処理の設計
+
+### 要点
+- **構文**: `begin ... rescue ... else ... ensure ... end`（メソッド内では `begin` を省略でき、`rescue` / `ensure` は `def` と同じ列にインデントを揃える）。
+- **`StandardError` の原則**: `Exception` 直下には `SystemExit` や `Interrupt` など捕捉してはいけない致命的エラーがある。通常の `rescue => e` は `StandardError` 以下だけを捕捉する。カスタム例外も必ず `StandardError` を継承する。
+- **送出と再送出**: `raise MyError, 'msg'` で送出し、`rescue` 内で引数なしの `raise` を呼ぶと元のメッセージやバックトレースを保ったまま再送出できる。
+- **`retry`**: `rescue` 内で呼ぶと `begin` の最初からやり直す。無限ループ防止のため試行回数制限とセットで使う。
