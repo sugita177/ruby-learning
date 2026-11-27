@@ -39,7 +39,7 @@ Rubyらしい簡潔で表現力の高いコードと、動的言語ならでは�
 - [x] **3-2. `Enumerator` と遅延評価（`lazy`）**: 外部イテレータ、`Enumerator::Lazy` による大きなデータストリームの省メモリ処理
 - [x] **3-3. パターンマッチ（`case ... in`）**: ネストしたハッシュ・配列の構造分解、ピン演算子（`^`）、ガード条件、1行パターンマッチ
 - [x] **3-4. 値オブジェクトの表現（`Struct` / `Data`）**: `Struct` とイミュータブルな `Data.define` の使い分け
-- [ ] **3-5. メタプログラミング入門**: `define_method`、`method_missing`（+ `respond_to_missing?`）、`send` / `public_send`、`instance_eval` / `class_eval`
+- [x] **3-5. メタプログラミング入門**: `define_method`、`method_missing`（+ `respond_to_missing?`）、`send` / `public_send`、`instance_eval` / `class_eval`
 - [ ] **3-6. 並行・並列処理の基礎知識**: GVL（Global VM Lock）の仕組み、`Thread`、`Fiber`、`Ractor` の違いと使い分け
 
 ---
