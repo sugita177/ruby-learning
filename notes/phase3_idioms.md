@@ -59,3 +59,16 @@
   - 定義されていないメソッドが呼ばれたときの最後の受け皿（`Ruby` にはプロパティがなく、`.` アクセスはすべてメソッド呼び出し）。
   - 対応しないメソッドは必ず `super` に流し、`respond_to?` が正しく動くよう `respond_to_missing?` を必ずセットで実装する。
 - **`instance_eval`**: ブロック内の `self` をレシーバ自身にすり替えて実行する仕組み。設定ファイルや RSpec のような DSL の根幹。`def configure(&); dsl.instance_eval(&); end` のように匿名ブロック転送と組み合わせると簡潔。
+
+---
+
+## 3-6. 並行・並列処理の基礎知識
+
+### 要点
+- **GVL（Global VM Lock）**: 同時に Ruby コードを実行できるスレッドは 1 つだけだが、**I/O 待ち時は GVL が解放される**ため、`Thread` で複数の I/O を重ねると高速化できる。
+- **`Thread` のイディオム**:
+  - `Thread.new(item) { |target| ... }` のように引数を渡して変数の競合を防ぐ。
+  - `threads.map(&:value)` で終了待ち＋戻り値回収（`threads.each(&:join)` は終了待ちのみ）。
+- **`Mutex`**: 複数スレッドから共有データを更新する際の排他制御（`mutex.synchronize { ... }`）。
+- **`Fiber`**: 開発者が `Fiber.yield`（一時停止）と `resume`（再開）を明示的に制御する軽量コルーチン（`Enumerator` の基盤）。
+- **`Ractor`**: GVL に縛られないアクターモデルの真のマルチコア並列（CPU バウンド向け）。
