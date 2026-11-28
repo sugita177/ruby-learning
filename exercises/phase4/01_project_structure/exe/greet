@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# TODO: '../lib/app' を require_relative で読み込んでください
+require_relative '../lib/app'
+
+# コマンドライン引数 ARGV[0] があればそれを、なければ 'Ruby' を使って App.run を呼ぶ
+target = ARGV[0] || 'Ruby'
+# TODO: App.run(target) を呼び出してください
+App.run(target)

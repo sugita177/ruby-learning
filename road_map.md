@@ -48,7 +48,7 @@ Rubyらしい簡潔で表現力の高いコードと、動的言語ならでは�
 
 Phase 5 の実践開発に向けて、Rubyプロジェクトの標準的な構成・テスト・静的解析・デバッグを身につけます。
 
-- [ ] **4-1. Bundler とプロジェクト構成**: `Gemfile` / `Gemfile.lock`、標準ディレクトリ構成（`lib/`、`spec/`、`exe/`）、`require` と `require_relative`
+- [x] **4-1. Bundler とプロジェクト構成**: `Gemfile` / `Gemfile.lock`、標準ディレクトリ構成（`lib/`、`spec/`、`exe/`）、`require` と `require_relative`
 - [ ] **4-2. RSpec の基礎と実践的な書き方**: `describe` / `context` / `it`、`let` / `let!`、`subject`、主要マッチャー、テストダブル（モック・スタブ）の基本
 - [ ] **4-3. RuboCop による静的解析とスタイル矯正**: `.rubocop.yml` のカスタマイズ、自動修正（`-a` / `-A`）、Rubyコミュニティの標準イディオムの習得
 - [ ] **4-4. デバッグツール入門**: 標準添付の `debug` gem（`binding.break` / `rdbg`）と `irb` の活用
