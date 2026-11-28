@@ -12,3 +12,8 @@ Style/OneClassPerFile:
 # 学習用・実務標準に合わせてトップレベルのクラスコメント強制を無効化
 Style/Documentation:
   Enabled: false
+
+# RSpec の describe / context ブロックは長くなりやすいため除外
+Metrics/BlockLength:
+  Exclude:
+    - '**/*_spec.rb'

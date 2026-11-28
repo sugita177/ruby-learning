@@ -11,3 +11,14 @@
 
 ### ハマったポイント・メモ
 - シバン付きの実行ファイルには `chmod +x` で実行権限を付けないと RuboCop の `Lint/ScriptPermission` で警告される。
+
+---
+
+## 4-2. RSpec の基礎と実践的な書き方
+
+### 要点
+- **基本構造**: `RSpec.describe 対象クラス`（中で `described_class` として参照可能）、`describe '#メソッド名'`、`context '〜の場合'`、`it '〜こと'`。
+- **テストデータ**: `let`（遅延評価・初回参照時にキャッシュ）、`let!`（即時評価）、`subject`（テスト対象の主役）。
+- **主要マッチャー**: `eq`、`change { ... }.by(...)`、`raise_error(ErrorClass)`（例外と状態変化はブロック `{ ... }` で渡す）。
+- **モック・スタブ**: `instance_double(ClassName, method: return_value)` で実在しないメソッド呼び出しを防止し、`have_received(:method).with(...).once` でスパイ検証を行う。
+- **RuboCop 連携**: RSpec の `describe` / `context` は長くなりやすいため、`.rubocop.yml` で `Metrics/BlockLength` から `**/*_spec.rb` を除外するのが定番。
